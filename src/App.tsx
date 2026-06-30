@@ -11,7 +11,9 @@ import {
   CircleAlert, 
   TrendingUp, 
   Smartphone,
-  Sparkles
+  Sparkles,
+  Map,
+  CreditCard
 } from 'lucide-react';
 import { 
   INITIAL_AREAS, 
@@ -36,6 +38,8 @@ import CustomersTab from './components/CustomersTab';
 import DriversTab from './components/DriversTab';
 import MerchantsTab from './components/MerchantsTab';
 import PartnershipTab from './components/PartnershipTab';
+import MapsTab from './components/MapsTab';
+import PaymentTab from './components/PaymentTab';
 
 export default function App() {
   // Navigation tabs: 'dashboard', 'customers', 'drivers', 'merchants', 'partnerships'
@@ -524,13 +528,40 @@ export default function App() {
               >
                 <MapPin className="w-4 h-4 shrink-0" />
                 <div className="flex justify-between items-center w-full">
-                  <span>Kemitraan Kabupaten/Kota</span>
+                  <span>Vendor Area</span>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
                     activeTab === 'partnerships' ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-100 text-slate-500'
                   }`}>
                     {areas.length}
                   </span>
                 </div>
+              </button>
+
+              {/* Settings area */}
+              <span className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-6 mb-2">System Settings</span>
+
+              <button
+                onClick={() => { setActiveTab('maps'); setIsMobileMenuOpen(false); }}
+                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all ${
+                  activeTab === 'maps'
+                    ? 'bg-slate-50 text-indigo-600 font-bold'
+                    : 'hover:bg-slate-50 text-slate-500 hover:text-indigo-600 font-medium'
+                }`}
+              >
+                <Map className="w-4 h-4 shrink-0" />
+                <span>API Maps</span>
+              </button>
+
+              <button
+                onClick={() => { setActiveTab('payment'); setIsMobileMenuOpen(false); }}
+                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all ${
+                  activeTab === 'payment'
+                    ? 'bg-slate-50 text-indigo-600 font-bold'
+                    : 'hover:bg-slate-50 text-slate-500 hover:text-indigo-600 font-medium'
+                }`}
+              >
+                <CreditCard className="w-4 h-4 shrink-0" />
+                <span>API Payment</span>
               </button>
             </nav>
           </div>
@@ -588,7 +619,9 @@ export default function App() {
                   {activeTab === 'customers' && 'Manajemen Pelanggan'}
                   {activeTab === 'drivers' && 'Kemitraan Driver'}
                   {activeTab === 'merchants' && 'Kemitraan Merchant'}
-                  {activeTab === 'partnerships' && 'Sistem Kemitraan Kabupaten & Kota'}
+                  {activeTab === 'partnerships' && 'Sistem Vendor Area'}
+                  {activeTab === 'maps' && 'Konfigurasi Google Maps API'}
+                  {activeTab === 'payment' && 'Konfigurasi Payment Gateway'}
                 </h2>
               </div>
             </div>
@@ -623,14 +656,18 @@ export default function App() {
                   {activeTab === 'customers' && 'Database Pelanggan Baru'}
                   {activeTab === 'drivers' && 'Armada Mitra Driver'}
                   {activeTab === 'merchants' && 'Daftar Outlet & Restoran'}
-                  {activeTab === 'partnerships' && 'Kemitraan Koodinator Area'}
+                  {activeTab === 'partnerships' && 'Vendor Area'}
+                  {activeTab === 'maps' && 'Manajemen Maps & Geolokasi'}
+                  {activeTab === 'payment' && 'Manajemen Sistem Gerbang Pembayaran'}
                 </h3>
                 <p className="text-xs text-slate-500 mt-1">
                   {activeTab === 'dashboard' && 'Memantau aktivitas, verifikasi pendaftaran ojol, dan statistik kemitraan daerah secara real-time.'}
                   {activeTab === 'customers' && 'Katalog pengguna aplikasi Radjago. Anda dapat menyunting akun, melakukan suspend, dan mengisi saldo dompet pelanggan.'}
                   {activeTab === 'drivers' && 'Kelola mitra pengemudi (Motor, Mobil, Bentor, Kurir). Setujui registrasi yang tertunda dan sesuaikan saldo dompet.'}
                   {activeTab === 'merchants' && 'Daftar mitra usaha makanan dan toko kelontong. Sesuaikan persentase potongan bagi hasil / komisi Radjago.'}
-                  {activeTab === 'partnerships' && 'Kelola koordinator daerah, komisi pendapatan regional, serta faktor multiplier tarif khusus tiap kota/regency.'}
+                  {activeTab === 'partnerships' && 'Kelola koordinator daerah, komisi pendapatan regional, serta faktor multiplier tarif khusus tiap Vendor Area.'}
+                  {activeTab === 'maps' && 'Konfigurasikan kunci Google Maps Platform Anda untuk merender rute driver, drone, dan koordinat maps merchant.'}
+                  {activeTab === 'payment' && 'Konfigurasikan server key dan client key untuk otomatisasi invoice top-up e-wallet via gerbang pembayaran.'}
                 </p>
               </div>
 
@@ -704,6 +741,14 @@ export default function App() {
                 onEditArea={handleEditArea}
                 onSimulateRegionalOrder={handleSimulateRegionalOrder}
               />
+            )}
+
+            {activeTab === 'maps' && (
+              <MapsTab triggerToast={triggerToast} />
+            )}
+
+            {activeTab === 'payment' && (
+              <PaymentTab triggerToast={triggerToast} />
             )}
           </div>
 

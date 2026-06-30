@@ -75,7 +75,7 @@ export default function DashboardStats({
         >
           <div className="flex justify-between items-start">
             <div className="space-y-2">
-              <span className="text-slate-500 text-sm font-medium">Mitra Driver</span>
+              <span className="text-slate-500 text-sm font-medium">Driver</span>
               <h3 className="text-3xl font-bold text-slate-800 tracking-tight">{totalDrivers}</h3>
               <p className="text-xs flex items-center font-medium mt-1">
                 {pendingDrivers.length > 0 ? (
@@ -105,7 +105,7 @@ export default function DashboardStats({
         >
           <div className="flex justify-between items-start">
             <div className="space-y-2">
-              <span className="text-slate-500 text-sm font-medium">Mitra Merchant</span>
+              <span className="text-slate-500 text-sm font-medium">Merchant</span>
               <h3 className="text-3xl font-bold text-slate-800 tracking-tight">{totalMerchants}</h3>
               <p className="text-xs flex items-center font-medium mt-1">
                 {pendingMerchants.length > 0 ? (
@@ -135,10 +135,10 @@ export default function DashboardStats({
         >
           <div className="flex justify-between items-start">
             <div className="space-y-2">
-              <span className="text-slate-500 text-sm font-medium">Kemitraan Wilayah</span>
+              <span className="text-slate-500 text-sm font-medium">Vendor Area</span>
               <h3 className="text-3xl font-bold text-slate-800 tracking-tight">{totalAreas}</h3>
               <p className="text-xs text-indigo-600 flex items-center font-medium gap-1 mt-1">
-                <span>Kabupaten & Kota Terdaftar</span>
+                <span>Vendor Area Terdaftar</span>
               </p>
             </div>
             <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-100 transition-colors duration-300">
@@ -158,7 +158,7 @@ export default function DashboardStats({
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-              <span className="text-xs text-slate-500 font-medium block">Total Saldo Dompet Pelanggan</span>
+              <span className="text-xs text-slate-500 font-medium block">Total Saldo</span>
               <span className="text-lg font-bold text-slate-800 block mt-1">
                 Rp {totalCustomerBalances.toLocaleString('id-ID')}
               </span>
@@ -185,9 +185,9 @@ export default function DashboardStats({
           <div className="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100/50 flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
             <div className="space-y-1">
-              <h5 className="text-xs font-semibold text-indigo-800">Catatan Sistem Kemitraan Area</h5>
+              <h5 className="text-xs font-semibold text-indigo-800">Catatan Sistem Vendor Area</h5>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Setiap transaksi perjalanan ojol dan pemesanan merchant secara otomatis memotong bagi hasil aplikasi Radjago. Area koordinator (Kemitraan Kabupaten/Kota) memperoleh bagi hasil berkisar antara <b>2.5% hingga 4.0%</b> dari volume transaksi wilayah masing-masing secara real-time.
+                Setiap transaksi perjalanan ojol dan pemesanan merchant secara otomatis memotong bagi hasil aplikasi Radjago. Area koordinator (Vendor Area) memperoleh bagi hasil berkisar antara <b>2.5% hingga 4.0%</b> dari volume transaksi wilayah masing-masing secara real-time.
               </p>
             </div>
           </div>

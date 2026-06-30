@@ -110,7 +110,7 @@ export default function PartnershipTab({
   return (
     <div className="space-y-6" id="partnership-tab-root">
       
-      {/* Kemitraan Info Cards */}
+      {/* Vendor Area Info Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2 flex flex-col justify-between">
           <div>
@@ -188,7 +188,7 @@ export default function PartnershipTab({
         </div>
       </div>
 
-      {/* Regional Kemitraan Table */}
+      {/* Regional Vendor Area Table */}
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse align-middle">
@@ -303,7 +303,7 @@ export default function PartnershipTab({
               ) : (
                 <tr>
                   <td colSpan={11} className="text-center py-12 text-slate-400">
-                    Tidak ada wilayah kemitraan yang cocok dengan pencarian.
+                    Tidak ada Vendor Area yang cocok dengan pencarian.
                   </td>
                 </tr>
               )}
@@ -317,7 +317,7 @@ export default function PartnershipTab({
         <div className="fixed inset-0 bg-slate-950/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl max-w-md w-full shadow-xl border border-slate-100 p-6 space-y-4">
             <div className="flex justify-between items-center pb-2 border-b border-slate-100">
-              <h3 className="font-semibold text-slate-800 text-sm">Daftarkan Area Kemitraan Baru</h3>
+              <h3 className="font-semibold text-slate-800 text-sm">Daftarkan Vendor Area Baru</h3>
               <button onClick={() => setIsAddModalOpen(false)} className="text-slate-400 hover:text-slate-600 text-base">&times;</button>
             </div>
             
@@ -374,7 +374,7 @@ export default function PartnershipTab({
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-[10px] font-semibold text-slate-500 uppercase block">Bagi Hasil Kemitraan (%) *</label>
+                  <label className="text-[10px] font-semibold text-slate-500 uppercase block">Bagi Hasil Vendor (%) *</label>
                   <input
                     type="number"
                     required
@@ -413,7 +413,7 @@ export default function PartnershipTab({
                   type="submit"
                   className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors"
                 >
-                  Simpan Area Kemitraan
+                  Simpan Vendor Area
                 </button>
               </div>
             </form>
@@ -426,7 +426,7 @@ export default function PartnershipTab({
         <div className="fixed inset-0 bg-slate-950/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl max-w-md w-full shadow-xl border border-slate-100 p-6 space-y-4">
             <div className="flex justify-between items-center pb-2 border-b border-slate-100">
-              <h3 className="font-semibold text-slate-800 text-sm">Edit Data Wilayah Kemitraan</h3>
+              <h3 className="font-semibold text-slate-800 text-sm">Edit Data Vendor Area</h3>
               <button onClick={() => { setIsEditModalOpen(false); setEditingArea(null); }} className="text-slate-400 hover:text-slate-600 text-base">&times;</button>
             </div>
             
@@ -480,7 +480,7 @@ export default function PartnershipTab({
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-[10px] font-semibold text-slate-500 uppercase block">Bagi Hasil Kemitraan (%)</label>
+                  <label className="text-[10px] font-semibold text-slate-500 uppercase block">Bagi Hasil Vendor (%)</label>
                   <input
                     type="number"
                     required
@@ -509,7 +509,7 @@ export default function PartnershipTab({
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1 col-span-2">
-                  <label className="text-[10px] font-semibold text-slate-500 uppercase block">Status Kemitraan</label>
+                  <label className="text-[10px] font-semibold text-slate-500 uppercase block">Status Vendor Area</label>
                   <select
                     value={editingArea.status}
                     onChange={(e) => setEditingArea({...editingArea, status: e.target.value as 'Active' | 'Inactive'})}
