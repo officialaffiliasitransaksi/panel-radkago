@@ -1,0 +1,6 @@
+{
+  "name": "Radjago Admin",
+  "description": "Panel admin ojol Radjago untuk mengelola pelanggan, driver, merchant, dan kemitraan wilayah kabupaten/kota.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
